@@ -1,20 +1,11 @@
-I connected two Ubuntu virtual machines using a NAT Network
-in Oracle VirtualBox.
+I prepared two Ubuntu Virtual Machines using Oracle VirtualBox. I configured both VMs to use the same NAT Network so that they could communicate with each other.
 
-First, I created a NAT Network in VirtualBox and assigned both Ubuntu
-VMs to the same NAT Network. Initially, both VMs had the same MAC
-address and received the same IP address because one VM was created as a
-clone.
+I checked the IP addresses of both VMs using the ip a command and used the ping command to verify connectivity between them. During the configuration, I found that the cloned Ubuntu VM had the same MAC address as the original VM, so I generated a new MAC address for the cloned VM. After this, both VMs received different IP addresses on the same network.
 
-I fixed this by changing the MAC address of the Ubuntu Clone from the
-VirtualBox network settings. After restarting both VMs, they received
-different IP addresses in the same network, such as 10.0.2.15 and
-10.0.2.16.
+I designated one Ubuntu VM as the Server and the other as the Client. On the Server VM, I created and ran a TCP server program that listens for incoming connections. On the Client VM, I created a TCP client program that connects to the Server using its IP address and port number.
 
-Finally, I used the ip a command to check the IP addresses and the
-ping command to test communication between the two VMs. The ping was
-successful, confirming that both Ubuntu VMs were connected and could
-communicate through the NAT Network.
+After establishing the TCP connection, I tested sending and receiving messages between the Server and Client. This demonstrated that the two Ubuntu VMs could communicate through the network and exchange messages using the TCP chat application.
 
-Result: Both Ubuntu virtual machines were successfully connected through
-the same NAT Network.
+Finally, I captured screenshots of the VirtualBox network configuration, IP addresses, successful ping test, and the TCP chat communication as evidence of the completed lab.
+
+Result: Two Ubuntu VMs were successfully configured on the same NAT Network, connected using TCP, and used as a Server and Client to demonstrate a working chat application.
